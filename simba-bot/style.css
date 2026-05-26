@@ -1,0 +1,92 @@
+#icone-simba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #d41367;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    z-index: 10000;
+}
+
+#icone-simba:hover {
+    transform: scale(1.1);
+}
+
+.janela-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    background-color: #ffffff;
+    border: 3px solid #d41367;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.escondido {
+    display: none !important;
+}
+
+.topo-chat {
+    background-color: #d41367;
+    color: #ffffff;
+    padding: 15px;
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.corpo-chat {
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #fcf4f7;
+}
+
+.balao-simba {
+    background-color: #ffffff;
+    color: #333333;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    font-size: 15px;
+    border-left: 5px solid #f7a81b;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.05);
+}
+
+.botao-opcao {
+    background-color: #ffffff;
+    color: #d41367;
+    border: 2px solid #d41367;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.botao-opcao:hover {
+    background-color: #f7a81b;
+    color: #ffffff;
+    border-color: #f7a81b;
+    transform: translateX(5px);
+}

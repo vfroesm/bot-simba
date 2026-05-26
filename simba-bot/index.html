@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Simba - Distrito 4521</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div style="padding: 40px; font-family: sans-serif; color: #666; background-color: #f0f0f0; height: 100vh;">
+        <h1 style="color: #d41367;">Site Oficial do Distrito 4521</h1>
+        <p>Esta é uma página de teste para demonstrar o assistente virtual Simba integrado.</p>
+        <p>Clique no leãozinho no canto inferior direito para falar com o Simba!</p>
+    </div>
+
+    <div id="icone-simba" onclick="alternarChat()">🦁</div>
+
+    <div id="janela-chat" class="janela-chat escondido">
+        <div class="topo-chat">
+            <span>🦁 Assistente Simba</span>
+            <span onclick="alternarChat()" style="cursor: pointer; font-size: 20px; margin-left: auto;">−</span>
+        </div>
+        <div class="corpo-chat">
+            <div id="texto-simba" class="balao-simba">Carregando...</div>
+            <div id="caixa-botoes"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
