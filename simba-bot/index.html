@@ -3,27 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Simba - Distrito 4521</title>
+    <title>Assistente Simba - Distrito 4521</title>
+    
+    <!-- Importação atualizada da fonte Montserrat (Normal 400 e Bold 700) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div style="padding: 40px; font-family: sans-serif; color: #666; background-color: #f0f0f0; height: 100vh;">
-        <h1 style="color: #d41367;">Site Oficial do Distrito 4521</h1>
-        <p>Esta é uma página de teste para demonstrar o assistente virtual Simba integrado.</p>
-        <p>Clique no leãozinho no canto inferior direito para falar com o Simba!</p>
+    <div style="padding: 40px; font-family: 'Montserrat', sans-serif; color: #666; background-color: #f0f0f0; height: 100vh;">
+        <h1 style="color: #d41367; font-weight: 700;">Site do Distrito 4521</h1>
+        <p style="font-weight: 400; line-height: 1.5;">Esta é uma página de teste para demonstrar o assistente virtual Simba integrado.<br>
+        Clique no leãozinho no canto inferior direito para falar com o Simba!</p>
     </div>
 
+    <!-- Ícone do Leão -->
     <div id="icone-simba" onclick="alternarChat()">🦁</div>
 
+    <!-- Janela do Chat -->
     <div id="janela-chat" class="janela-chat escondido">
         <div class="topo-chat">
             <span>🦁 Assistente Simba</span>
             <span onclick="alternarChat()" style="cursor: pointer; font-size: 20px; margin-left: auto;">−</span>
         </div>
+        
         <div class="corpo-chat">
             <div id="texto-simba" class="balao-simba">Carregando...</div>
             <div id="caixa-botoes"></div>
+        </div>
+
+        <div class="rodape-input">
+            <input type="text" id="input-usuario" placeholder="Digite sua dúvida..." onkeypress="verificarTecla(event)">
+            <button onclick="processarBuscaTexto()">Enviar</button>
         </div>
     </div>
 
