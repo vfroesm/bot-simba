@@ -1,83 +1,231 @@
-/* Força a fonte Montserrat em absolutamente tudo, incluindo inputs e botões internos */
+/* =========================================================================
+   PALETA OFICIAL: CRANBERRY (#D91B5C) | ROTARY GOLD (#F7A81B)
+   ========================================================================= */
+
 * {
-    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-#icone-simba {
-    position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px;
-    background-color: #d41367; border-radius: 50%; display: flex;
-    align-items: center; justify-content: center; font-size: 30px;
-    cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); z-index: 1000;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f6f9;
+    color: #333333;
+    height: 100vh;
+    position: relative;
 }
 
-.janela-chat {
-    position: fixed; bottom: 20px; right: 20px; width: 350px; height: 450px;
-    background-color: #ffffff; border: 3px solid #d41367; border-radius: 15px;
-    display: flex; flex-direction: column; overflow: hidden; z-index: 999;
+.site-simulado {
+    padding: 50px;
+    text-align: center;
 }
 
-.escondido { display: none !important; }
-
-/* Título do Chat em Bold (700) */
-.topo-chat { 
-    background-color: #d41367; 
-    color: white; 
-    padding: 15px; 
-    font-weight: 700; 
-    display: flex; 
+.site-simulado h1 {
+    color: #D91B5C; /* Cranberry Oficial */
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
-.corpo-chat { padding: 15px; flex: 1; overflow-y: auto; background-color: #fcf4f7; }
-
-/* Textos internos do chat em peso Normal (400) */
-.balao-simba { 
-    background-color: white; 
-    padding: 12px; 
-    border-radius: 10px; 
-    margin-bottom: 15px; 
-    border-left: 5px solid #f7a81b; 
-    font-weight: 400; 
-    line-height: 1.4; 
-    font-size: 14px;
+/* 1. ÍCONE FLUTUANTE */
+#chat-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background-color: #D91B5C; /* Cranberry */
+    border: 3px solid #F7A81B; /* Rotary Gold */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    z-index: 9999;
 }
 
-.botao-opcao { 
-    background-color: white; 
-    color: #d41367; 
-    border: 2px solid #d41367; 
-    border-radius: 8px; 
-    padding: 10px; 
-    width: 100%; 
-    margin-bottom: 8px; 
-    cursor: pointer; 
-    text-align: left; 
-    font-weight: 400; 
-    font-size: 14px;
+#chat-icon:hover {
+    transform: scale(1.08);
 }
 
-.botao-opcao:hover { background-color: #f7a81b; color: white; border-color: #f7a81b; }
-
-.rodape-input { display: flex; padding: 15px; border-top: 1px solid #eee; background-color: white; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; }
-
-#input-usuario { 
-    flex: 1; 
-    padding: 8px; 
-    border: 2px solid #ddd; 
-    border-radius: 20px; 
-    outline: none; 
-    font-weight: 400; 
-    font-size: 14px;
+/* 2. CAIXA CONTAINER DO CHAT */
+#chat-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 360px;
+    height: 520px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    z-index: 9999;
 }
 
-.rodape-input button { 
-    background-color: #d41367; 
-    color: white; 
-    border: none; 
-    padding: 8px 15px; 
-    margin-left: 5px; 
-    border-radius: 20px; 
-    cursor: pointer; 
-    font-weight: 700; /* Botão de ação em Bold */
-    font-size: 14px;
+/* Cabeçalho */
+.chat-header {
+    background-color: #D91B5C; /* Cranberry */
+    color: #ffffff;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #F7A81B; /* Gold */
+}
+
+.chat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chat-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.chat-subtitle {
+    font-size: 11px;
+    opacity: 0.9;
+}
+
+#close-chat {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* 3. HISTÓRICO DE MENSAGENS (WHATSAPP STYLE) */
+#chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Bolhas de texto */
+.message {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 13.5px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+/* Mensagens do Usuário (Direita - Gold) */
+.message.user {
+    align-self: flex-end;
+    background-color: #F7A81B; /* Rotary Gold */
+    color: #ffffff;
+    border-bottom-right-radius: 2px;
+}
+
+/* Mensagens do Gigante (Esquerda - Branca com borda Cranberry) */
+.message.assistant {
+    align-self: flex-start;
+    background-color: #ffffff;
+    color: #333333;
+    border-bottom-left-radius: 2px;
+    border-left: 3px solid #D91B5C; /* Detalhe Cranberry */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Indicador de Digitação */
+.message.typing {
+    font-style: italic;
+    background-color: transparent;
+    color: #777777;
+    border: none;
+    box-shadow: none;
+}
+
+/* 4. BOTÕES DE ATALHO (CHIPS/TAGS) */
+.shortcut-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0;
+    align-self: flex-start;
+    max-width: 90%;
+}
+
+.shortcut-btn {
+    background-color: #ffffff;
+    color: #D91B5C; /* Texto em Cranberry */
+    border: 1px solid #D91B5C;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 700;
+}
+
+.shortcut-btn:hover {
+    background-color: #D91B5C;
+    color: #ffffff;
+}
+
+/* 5. INPUT RODAPÉ */
+.chat-input-area {
+    padding: 12px;
+    background-color: #ffffff;
+    border-top: 1px solid #ededed;
+    display: flex;
+    gap: 8px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13.5px;
+    outline: none;
+}
+
+#user-input:focus {
+    border-color: #D91B5C;
+}
+
+#send-btn {
+    background-color: #D91B5C; /* Cranberry */
+    color: #ffffff;
+    border: none;
+    padding: 0 16px;
+    border-radius: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* 6. ESTILO PARA OS LINKS CLICÁVEIS DENTRO DO CHAT */
+.message a {
+    color: #D91B5C; /* Cranberry */
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.message a:hover {
+    text-decoration: underline;
+}
+
+/* Garante que links mandados pelo usuário fiquem brancos */
+.message.user a {
+    color: #ffffff;
 }

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistente Simba - Distrito 4521</title>
+    <title>Assistente Virtual Gigante - Distrito 4521</title>
     
-    <!-- Importação atualizada da fonte Montserrat (Normal 400 e Bold 700) -->
+    <!-- Fonte Oficial Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -14,31 +14,39 @@
 </head>
 <body>
 
-    <div style="padding: 40px; font-family: 'Montserrat', sans-serif; color: #666; background-color: #f0f0f0; height: 100vh;">
-        <h1 style="color: #d41367; font-weight: 700;">Site do Distrito 4521</h1>
-        <p style="font-weight: 400; line-height: 1.5;">Esta é uma página de teste para demonstrar o assistente virtual Simba integrado.<br>
-        Clique no leãozinho no canto inferior direito para falar com o Simba!</p>
+    <!-- Simulação do site de fundo -->
+    <div class="site-simulado">
+        <h1>Distrito 4521</h1>
+        <p>Área de validação do assistente virtual distrital.</p>
     </div>
 
-    <!-- Ícone do Leão -->
-    <div id="icone-simba" onclick="alternarChat()">🦁</div>
+    <!-- Ícone Flutuante (Botão do Leão) -->
+    <div id="chat-icon">🦁</div>
 
-    <!-- Janela do Chat -->
-    <div id="janela-chat" class="janela-chat escondido">
-        <div class="topo-chat">
-            <span>🦁 Assistente Simba</span>
-            <span onclick="alternarChat()" style="cursor: pointer; font-size: 20px; margin-left: auto;">−</span>
-        </div>
+    <!-- Caixa do Chat -->
+    <div id="chat-container" style="display: none;">
         
-        <div class="corpo-chat">
-            <div id="texto-simba" class="balao-simba">Carregando...</div>
-            <div id="caixa-botoes"></div>
+        <!-- Cabeçalho -->
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <span class="chat-avatar">🦁</span>
+                <div>
+                    <h3 class="chat-title">Assistente Gigante</h3>
+                    <span class="chat-subtitle">Distrito 4521</span>
+                </div>
+            </div>
+            <button id="close-chat">&times;</button>
         </div>
 
-        <div class="rodape-input">
-            <input type="text" id="input-usuario" placeholder="Digite sua dúvida..." onkeypress="verificarTecla(event)">
-            <button onclick="processarBuscaTexto()">Enviar</button>
+        <!-- Histórico de Mensagens e Botões -->
+        <div id="chat-messages"></div>
+
+        <!-- Campo de Input Rodapé -->
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Digite sua dúvida ou clique em um atalho..." autocomplete="off">
+            <button id="send-btn">Enviar</button>
         </div>
+
     </div>
 
     <script src="script.js"></script>

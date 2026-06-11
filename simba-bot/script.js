@@ -1,153 +1,209 @@
+// =========================================================================
+// PROJETO: ASSISTENTE VIRTUAL "GIGANTE" - DISTRITO 4521 (VERSÃO TURBO)
+// =========================================================================
+
+// 1. BASE DE CONHECIMENTO EXPANDIDA (MAIS PALAVRAS-CHAVE = MAIS INTELIGÊNCIA)
 const baseConhecimento = {
-    "inicio": {
-        "texto": "Olá! Eu sou o Simba, o assistente virtual do Distrito 4521. Como posso te ajudar hoje?",
-        "opcoes": [
-            { "texto": "📅 Próximos Eventos", "proximo_no": "eventos" },
-            { "texto": "🔗 Links e Documentos", "proximo_no": "links" },
-            { "texto": "🦁 Liderança e Dúvidas", "proximo_no": "duvidas" }
-        ]
+    "saudacao": {
+        "palavrasChave": ["oi", "ola", "bom dia", "boa tarde", "boa noite", "ajuda", "cumprimento", "hey", "testando", "teste"],
+        "resposta": "Olá! Que ótimo falar com você. Eu sou o <strong>Gigante</strong>, o assistente virtual do Distrito 4521. 🦁<br><br>Você pode digitar sua dúvida a qualquer momento ou clicar em um dos atalhos abaixo:"
     },
-    "eventos": {
-        "texto": "Temos eventos importantes no calendário distrital. O que deseja consultar?",
-        "opcoes": [
-            { "texto": "1.1 CODIRC", "proximo_no": "info_codirc" },
-            { "texto": "1.2 ADIRC", "proximo_no": "adirc" },
-            { "texto": "⬅️ Voltar ao Início", "proximo_no": "inicio" }
-        ]
+    "rotaract": {
+        "palavrasChave": ["o que e rotaract", "rotaract", "sobre o rotaract", "clube", "programa", "jovens", "membros", "associados"],
+        "resposta": "O <strong>Rotaract</strong> é um programa do Rotary International que une jovens a partir de 18 anos para desenvolver liderança, realizar ações humanitárias e promover a paz através do serviço comunitário global!"
     },
-    "info_codirc": {
-        "texto": "A Conferência Distrital (CODIRC), tema <b>Chico Rei</b>, acontece em Ouro Preto de 17 a 19 de julho!<br><br>👉 <a href='http://eventos.rotaract4521.org.br' target='_blank'>eventos.rotaract4521.org.br</a>",
-        "opcoes": [{ "texto": "⬅️ Voltar ao Início", "proximo_no": "inicio" }]
+    "rotary": {
+        "palavrasChave": ["rotary", "international", "rotarianos", "rede", "fundacao", "padrinho", "patrocinador"],
+        "resposta": "O <strong>Rotary</strong> é uma rede global de líderes comunitários, amigos e vizinhos que se unem para causar mudanças positivas e duradouras em suas comunidades e pelo mundo inteiro."
+    },
+    "rdr": {
+        "palavrasChave": ["rdr", "representante distrital", "lider do distrito", "quem manda", "chefe", "comandando", "quem e o rdr", "liderança distrital"],
+        "resposta": "O Representante Distrital de Rotaract (<strong>RDR</strong>) da nossa gestão é o(a) <strong>Pedro Cazita</strong>! Ele(a) é a liderança máxima do nosso distrito, responsável por guiar os clubes, alinhar as metas e representar o 4521 perfeitamente."
+    },
+    "codirc": {
+        "palavrasChave": ["codirc", "conferencia", "ouro preto", "chico rei", "inscricao", "evento", "quando", "lote", "ingressos", "festa"],
+        "resposta": "A <strong>CODIRC</strong> (Conferência Distrital de Rotaract Clubs) deste ano será realizada na cidade histórica de Ouro Preto! É o maior evento do nosso distrito.<br><br>Garanta a sua inscrição acessando o nosso site oficial: <br>🎟️ <a href='https://eventos.rotaract4521.org.br/' target='_blank'>Site de Eventos - CODIRC</a>"
     },
     "adirc": {
-        "texto": "A ADIRC é o treinamento para o novo ano rotário. A edição deste ano já aconteceu em BH! Veja as fotos no Drive:<br><br>👉 <a href='https://drive.google.com/drive/folders/1ArJrEuQn-vVqFFBcNI__7m0vteVIuofF' target='_blank'>Acessar Drive</a>",
-        "opcoes": [{ "texto": "⬅️ Voltar ao Início", "proximo_no": "inicio" }]
+        "palavrasChave": ["adirc", "assembleia", "fotos da adirc", "treinamento", "passou", "aconteceu", "fotos do evento"],
+        "resposta": "A <strong>ADIRC</strong> (Assembleia Distrital de Rotaract Clubs) já aconteceu e foi um grande sucesso!<br><br>Para relembrar os momentos, conferir os treinamentos e ver a cobertura de fotos, acesse o nosso drive: <br>📸 <a href='https://drive.google.com/drive/folders/1ArJrEuQn-vVqFFBcNI__7m0vteVIuofF' target='_blank'>Fotos e Arquivos ADIRC</a>"
     },
     "links": {
-        "texto": "O que você está precisando acessar?",
-        "opcoes": [
-            { "texto": "📁 Drive de Materiais", "proximo_no": "links_drive" },
-            { "texto": "📝 Formulários", "proximo_no": "links_formularios" },
-            { "texto": "📱 Nossas Redes", "proximo_no": "links_redes" },
-            { "texto": "⬅️ Voltar ao Início", "proximo_no": "inicio" }
-        ]
+        "palavrasChave": ["link", "drive", "documentos", "manual", "arquivos", "acesso", "linktree", "materiais", "pasta", "pdf", "identidade visual", "logo"],
+        "resposta": "Todos os nossos manuais de cargo, documentos oficiais e materiais de identidade visual estão centralizados no Drive Oficial. Você também encontra atalhos úteis no nosso Linktree:<br><br>📂 <a href='https://drive.google.com/drive/folders/1ArJrEuQn-vVqFFBcNI__7m0vteVIuofF' target='_blank'>Drive Distrital Completo</a><br>🔗 <a href='https://linktr.ee/rotaract4521' target='_blank'>Nossos Links Úteis (Linktree)</a>"
     },
-    "duvidas": {
-        "texto": "Escolha um tema para saber mais:",
-        "opcoes": [
-            { "texto": "❓ O que é o Rotaract?", "proximo_no": "sobre_rotaract" },
-            { "texto": "👤 Liderança e RDR", "proximo_no": "lideranca" },
-            { "texto": "🎨 Identidade Visual", "proximo_no": "comunicacao" },
-            { "texto": "🌍 Projetos", "proximo_no": "projetos" },
-            { "texto": "💰 Pagamentos/Taxas", "proximo_no": "pagamentos" },
-            { "texto": "⬅️ Voltar ao Início", "proximo_no": "inicio" }
-        ]
+    "redes": {
+        "palavrasChave": ["instagram", "youtube", "linkedin", "redes", "sociais", "seguir", "perfil", "face", "canal", "videos"],
+        "resposta": "Acompanhe todos os projetos, avisos e novidades do Distrito 4521 pelas nossas redes oficiais:<br><br>📱 <a href='https://www.instagram.com/rotaract4521/' target='_blank'>Instagram (@rotaract4521)</a><br>▶️ <a href='https://www.youtube.com/@Rotaract4521' target='_blank'>YouTube</a><br>💼 <a href='https://www.linkedin.com/company/rotaract4521/' target='_blank'>LinkedIn</a>"
     },
-    "sobre_rotaract": {
-        "texto": "O Rotaract é um programa global de jovens líderes, a partir de 18 anos, que se dedicam a causar mudanças positivas em suas comunidades através do servir.<br><br>🦁 E o nosso Distrito 4521 orgulhosamente é o maior distrito de Minas Gerais!",
-        "opcoes": [{ "texto": "⬅️ Voltar às Dúvidas", "proximo_no": "duvidas" }]
+    "abreviacoes": {
+        "palavrasChave": ["dqa", "sigla", "significado", "abreviacao", "siglas", "o que significa"],
+        "resposta": "No ecossistema rotário usamos muitas siglas! <br><br>• <strong>RDR:</strong> Representante Distrital de Rotaract (líder máximo do distrito).<br>• <strong>DQA:</strong> Desenvolvimento do Quadro Associativo (comitê focado em expandir e engajar os membros dos clubes)."
     },
-    "lideranca": {
-        "texto": "O RDR é o <b>Pedro Cazita</b> (João Monlevade). A Governadoria cuida da estratégia, suporte aos clubes e implementação das metas.",
-        "opcoes": [{ "texto": "⬅️ Voltar às Dúvidas", "proximo_no": "duvidas" }]
+    "taxas": {
+        "palavrasChave": ["taxa", "distrital", "pagamento", "tesouraria", "dinheiro", "valores", "pagar", "custo", "boleto", "quanto custa"],
+        "resposta": "As <strong>taxas distritais</strong> são fundamentais para manter os projetos e eventos do nosso distrito ativos. Os valores exatos e prazos de pagamento são enviados pela nossa equipe financeira diretamente aos tesoureiros de cada clube."
     },
-    "comunicacao": {
-        "texto": "Use o <b>Brand Center</b>: <a href='https://brandcenter.rotary.org/pt-br/' target='_blank'>brandcenter.rotary.org</a>.<br><br><b>Cores:</b> Rotary Gold, Royal Blue, Azure, Sky Blue e Cranberry.",
-        "opcoes": [{ "texto": "⬅️ Voltar às Dúvidas", "proximo_no": "duvidas" }]
-    },
-    "projetos": {
-        "texto": "Consulte o nosso Drive Distrital ou o portal oficial <b>Rotary Showcase</b> para ver projetos realizados.",
-        "opcoes": [{ "texto": "⬅️ Voltar às Dúvidas", "proximo_no": "duvidas" }]
-    },
-    "pagamentos": {
-        "texto": "O dinheiro das taxas (quota distrital) financia treinamentos (ADIRC), comunicação, subsídios para projetos e manutenção do distrito.",
-        "opcoes": [{ "texto": "⬅️ Voltar às Dúvidas", "proximo_no": "duvidas" }]
-    },
-    "links_drive": {
-        "texto": "Acesse: <a href='https://linktr.ee/rotaract4521' target='_blank'>Linktree</a> ou o <a href='https://drive.google.com/drive/folders/1ArJrEuQn-vVqFFBcNI__7m0vteVIuofF' target='_blank'>Drive Oficial</a>.",
-        "opcoes": [{ "texto": "⬅️ Voltar aos Links", "proximo_no": "links" }]
-    },
-    "links_formularios": {
-        "texto": "Relatórios de Secretaria, Tesouraria e Projetos estão nos links do formulário Google do distrito.",
-        "opcoes": [{ "texto": "⬅️ Voltar aos Links", "proximo_no": "links" }]
-    },
-    "links_redes": {
-        "texto": "Instagram: @rotaract4521 e @eventos.rotaract4521. YouTube: @Rotaract4521.",
-        "opcoes": [{ "texto": "⬅️ Voltar aos Links", "proximo_no": "links" }]
+    "ajuda_humana": {
+        "resposta": "Hum, eu ainda não tenho essa informação exata na minha base de dados atual. 😕<br><br>Mas não se preocupe! Envie sua dúvida diretamente para a nossa secretaria e a equipe vai te responder rapidinho:<br>✉️ <a href='mailto:secretaria@rotaract4521.org.br'>secretaria@rotaract4521.org.br</a>"
     }
 };
 
-const dadosTreinamentoIA = {
-    "sobre_rotaract": ["rotaract", "programa", "significado", "maior distrito", "o que é", "idade"],
-    "info_codirc": ["codirc", "inscrição", "ouro preto", "conferência", "ingresso"],
-    "adirc": ["adirc", "assembleia", "treinamento", "fotos adirc", "data adirc"],
-    "lideranca": ["rdr", "pedro cazita", "quem é o líder", "governadoria", "equipe distrital"],
-    "comunicacao": ["manual", "marca", "cores", "logo", "brand center", "identidade"],
-    "projetos": ["projetos", "showcase", "como fazer projeto", "onde ver projetos"],
-    "pagamentos": ["dinheiro", "taxas", "quota", "pagamento", "boleto"],
-    "links_drive": ["drive", "arquivos", "documentos", "linktree"],
-    "links_formularios": ["relatório", "bimestral", "secretaria", "tesouraria", "formulario"],
-    "links_redes": ["instagram", "youtube", "redes sociais"]
-};
+// 2. MAPEAMENTO DE ELEMENTOS DO DOM
+const chatIcon = document.getElementById("chat-icon");
+const chatContainer = document.getElementById("chat-container");
+const closeChatBtn = document.getElementById("close-chat");
+const chatMessages = document.getElementById("chat-messages");
+const userInput = document.getElementById("user-input");
+const sendBtn = document.getElementById("send-btn");
 
-function mostrarNo(idDoNo) {
-    const noAtual = baseConhecimento[idDoNo];
-    if (!noAtual) return;
-    const elementoTexto = document.getElementById("texto-simba");
-    const caixaBotoes = document.getElementById("caixa-botoes");
-    if (elementoTexto) { elementoTexto.innerHTML = noAtual.texto; }
-    if (caixaBotoes) {
-        caixaBotoes.innerHTML = "";
-        noAtual.opcoes.forEach(opcao => {
-            const b = document.createElement("button");
-            b.innerText = opcao.texto;
-            b.className = "botao-opcao";
-            b.onclick = function() { mostrarNo(opcao.proximo_no); };
-            caixaBotoes.appendChild(b);
-        });
+let chatIniciado = false;
+
+// 3. CONTROLE DE ABERTURA E FECHAMENTO
+chatIcon.addEventListener("click", () => {
+    chatContainer.style.display = "flex";
+    chatIcon.style.display = "none";
+    if (!chatIniciado) {
+        mostrarMensagemInicial();
+        chatIniciado = true;
     }
+});
+
+closeChatBtn.addEventListener("click", () => {
+    chatContainer.style.display = "none";
+    chatIcon.style.display = "flex"; 
+});
+
+// 4. ENVIO DE MENSAGENS
+sendBtn.addEventListener("click", processarMensagemUsuario);
+userInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") processarMensagemUsuario();
+});
+
+function processarMensagemUsuario() {
+    const textoDigitado = userInput.value.trim();
+    if (textoDigitado === "") return;
+
+    adicionarBolhaMensagem("user", textoDigitado);
+    userInput.value = "";
+
+    exibirIndicadorDigitando();
+
+    setTimeout(() => {
+        removerIndicadorDigitando();
+        const respostaFinal = calcularMelhorResposta(textoDigitado);
+        adicionarBolhaMensagem("assistant", respostaFinal);
+        adicionarBotoesAtalho();
+    }, 1200);
 }
 
-function alternarChat() {
-    const janela = document.getElementById("janela-chat");
-    const icone = document.getElementById("icone-simba");
-    janela.classList.toggle("escondido");
-    icone.style.display = janela.classList.contains("escondido") ? "flex" : "none";
-}
+// 5. NOVO ALGORITMO DE BUSCA INTELIGENTE (COINCIDÊNCIA DE SUBSTRINGS E CONTEXTO)
+function calcularMelhorResposta(texto) {
+    // Normaliza o texto removendo acentos e caracteres especiais
+    const textoLimpo = texto.toLowerCase()
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "")
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-function processarBuscaTexto() {
-    const input = document.getElementById("input-usuario");
-    if (!input || input.value.trim() === "") return;
-    const perguntaUsuario = input.value.toLowerCase().trim();
-    input.value = "";
-    
-    // Lista de StopWords atualizada com "que", "é", "e" para evitar falsos positivos
-    const stopWords = ["o", "a", "os", "as", "de", "da", "do", "para", "com", "em", "um", "uma", "me", "eu", "onde", "como", "achar", "encontrar", "saber", "quero", "qual", "que", "é", "e"];
-    const tokensUsuario = perguntaUsuario.split(/\s+/).filter(palavra => !stopWords.includes(palavra));
-
-    let melhorNo = null;
+    let melhorTopico = null;
     let maiorPontuacao = 0;
 
-    for (const noId in dadosTreinamentoIA) {
-        let pontuacaoDoNo = 0;
-        const frasesTreino = dadosTreinamentoIA[noId];
-        frasesTreino.forEach(fraseTreino => {
-            let correspondencias = 0;
-            tokensUsuario.forEach(token => { if (fraseTreino.includes(token)) correspondencias++; });
-            if (correspondencias > 0) pontuacaoDoNo += (correspondencias / tokensUsuario.length);
+    for (const topico in baseConhecimento) {
+        if (topico === "ajuda_humana" || topico === "saudacao") continue;
+
+        let pontuacaoAtual = 0;
+        const chaves = baseConhecimento[topico].palavrasChave;
+
+        chaves.forEach(chave => {
+            // SE a frase digitada contiver a palavra-chave ou vice-versa, pontua o tópico
+            if (textoLimpo.includes(chave) || chave.includes(textoLimpo)) {
+                pontuacaoAtual += 2; 
+            }
         });
-        if (pontuacaoDoNo > maiorPontuacao) {
-            maiorPontuacao = pontuacaoDoNo;
-            melhorNo = noId;
+
+        if (pontuacaoAtual > maiorPontuacao) {
+            maiorPontuacao = pontuacaoAtual;
+            melhorTopico = topico;
         }
     }
 
-    if (melhorNo && maiorPontuacao > 0.1) {
-        mostrarNo(melhorNo);
+    if (maiorPontuacao > 0 && melhorTopico) {
+        return baseConhecimento[melhorTopico].resposta;
     } else {
-        document.getElementById("texto-simba").innerHTML = "Não encontrei isso. Tente palavras como <b>'Rotaract'</b>, <b>'ADIRC'</b> ou <b>'Taxas'</b>.";
+        // Fallback de segurança para saudações
+        const saudaChaves = baseConhecimento["saudacao"].palavrasChave;
+        let isSaudacao = false;
+        saudaChaves.forEach(chave => {
+            if (textoLimpo.includes(chave)) isSaudacao = true;
+        });
+
+        return isSaudacao ? baseConhecimento["saudacao"].resposta : baseConhecimento["ajuda_humana"].resposta;
     }
 }
 
-window.onload = function() { mostrarNo("inicio"); };
-function verificarTecla(e) { if (e.key === "Enter") processarBuscaTexto(); }
+// 6. FUNÇÕES DE INTERFACE
+function mostrarMensagemInicial() {
+    adicionarBolhaMensagem("assistant", baseConhecimento["saudacao"].resposta);
+    adicionarBotoesAtalho();
+}
+
+function adicionarBolhaMensagem(remetente, texto) {
+    const divObjeto = document.createElement("div");
+    divObjeto.classList.add("message", remetente);
+    divObjeto.innerHTML = texto; 
+    chatMessages.appendChild(divObjeto);
+    scrollParaOFinal();
+}
+
+function adicionarBotoesAtalho() {
+    const containersAntigos = document.querySelectorAll(".shortcut-container");
+    containersAntigos.forEach(c => c.remove());
+
+    const botonsContainer = document.createElement("div");
+    botonsContainer.classList.add("shortcut-container");
+    
+    const botoes = [
+        { texto: "Inscrição CODIRC", chave: "codirc" },
+        { texto: "Fotos ADIRC", chave: "adirc" },
+        { texto: "Quem é o RDR?", chave: "rdr" },
+        { texto: "Drive e Documentos", chave: "links" }
+    ];
+    
+    botoes.forEach(botao => {
+        const btn = document.createElement("button");
+        btn.classList.add("shortcut-btn");
+        btn.innerText = Math.trunc ? botao.texto : botao.texto; // Tratamento genérico de renderização
+        
+        btn.addEventListener("click", () => {
+            adicionarBolhaMensagem("user", botao.texto);
+            exibirIndicadorDigitando();
+            
+            setTimeout(() => {
+                removerIndicadorDigitando();
+                adicionarBolhaMensagem("assistant", baseConhecimento[botao.chave].resposta);
+                adicionarBotoesAtalho();
+            }, 1200);
+        });
+        botonsContainer.appendChild(btn);
+    });
+    
+    chatMessages.appendChild(botonsContainer);
+    scrollParaOFinal();
+}
+
+function exibirIndicadorDigitando() {
+    const divDigitando = document.createElement("div");
+    divDigitando.id = "typing-indicator";
+    divDigitando.classList.add("message", "assistant", "typing");
+    divDigitando.innerText = "Gigante está digitando...";
+    chatMessages.appendChild(divDigitando);
+    scrollParaOFinal();
+}
+
+function removerIndicadorDigitando() {
+    const indicador = document.getElementById("typing-indicator");
+    if (indicador) indicador.remove();
+}
+
+function scrollParaOFinal() {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
